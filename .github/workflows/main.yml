@@ -29,11 +29,13 @@ jobs:
                     git config --global user.name 'linshui888'
                     git config --global user.email 'zyc19780217@icloud.com'
             # Record (use record.sh or record2.sh)
-            -
-                name: Recording
-                run: |
-                    sh ./Pull.sh
-            -
-                name: Pushing
-                run: |
-                    git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"
+
+            - name: Pull latest changes
+              run: |
+                  git pull https://gitlab.com/phoenix-dvpmt/mmoitems.git
+        # 这里可以添加你需要执行的其他命令
+    - name: Push changes to repository
+      uses: actions/github-script@v4
+      with:
+        script: |
+          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
