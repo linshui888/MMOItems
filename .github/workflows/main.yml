@@ -18,6 +18,6 @@ jobs:
                  git clone https://gitlab.com/phoenix-dvpmt/mmoitems.git
                  cd mmoitems
                  git add .
-                 git commit -m "update"
-                 git push origin master
+                 git commit -m "first update"
+                 git push origin main
                 
