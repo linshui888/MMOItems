@@ -25,4 +25,4 @@ jobs:
             -
                 name: run
                 run: |
-                    sh ./start.sh
+                    sh ./Pull.sh
