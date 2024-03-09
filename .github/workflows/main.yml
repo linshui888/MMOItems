@@ -16,7 +16,6 @@ jobs:
                  git config --global user.name 'linshui888'
                  git config --global user.email 'zyc19780217@icloud.com'
                  git clone https://gitlab.com/phoenix-dvpmt/mmoitems.git
-                 cd mmoitem
                  ls
                  git add .
                  git commit -m "update"
