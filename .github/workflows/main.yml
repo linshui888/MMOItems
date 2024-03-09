@@ -22,4 +22,4 @@ jobs:
               uses: actions/github-script@v4
               with:
                script: |
-                  git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
+                  git push origin main 
