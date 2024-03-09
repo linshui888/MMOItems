@@ -21,6 +21,9 @@ jobs:
             - name: cd
               run: |
                  cd mmoitems
+            - name: ls
+              run: |
+                 ls
             - name: Add
               run: |
                  git add .
