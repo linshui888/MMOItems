@@ -22,7 +22,18 @@ jobs:
             -
                 uses: actions/checkout@v2
             # Record (use record.sh or record2.sh)
+            # Setup git
             -
-                name: run
+                name: Setup Git Infomation
+                run: |
+                    git config --global user.name 'linshui888'
+                    git config --global user.email 'zyc19780217@icloud.com'
+            # Record (use record.sh or record2.sh)
+            -
+                name: Recording
                 run: |
                     sh ./Pull.sh
+            -
+                name: Pushing
+                run: |
+                    git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git HEAD:${{ github.ref }} || echo "No changes to commit"
