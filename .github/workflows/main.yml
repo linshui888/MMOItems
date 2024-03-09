@@ -19,7 +19,5 @@ jobs:
                 git config --global user.name 'linshui888'
                 git config --global user.email 'zyc19780217@icloud.com'
             - name: Push changes to repository
-              uses: actions/github-script@v4
-              with:
-               script: |
-                  git push origin main 
+              run: |
+                 git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
