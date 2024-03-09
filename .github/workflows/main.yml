@@ -18,6 +18,7 @@ jobs:
               run: |
                 git config --global user.name 'linshui888'
                 git config --global user.email 'zyc19780217@icloud.com'
+                git remote add origin https://github.com/linshui888/MMOItems.git
             - name: Push changes to repository
               run: |
-                 git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
+                 git push origin main
