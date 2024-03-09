@@ -1,38 +1,25 @@
-# nothing
 name: Update regularly every hour
-# daily job
 on:
     push:
     schedule:
         -
             cron: 00 00 5,10,15,20,25,30 * *
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-     build:
-        # The type of runner that the job will run on
+     pull and push:
         runs-on: ubuntu-latest
-
-        # Steps represent a sequence of tasks that will be executed as part of the job
         steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-            -
-                uses: actions/checkout@v2
+            - uses: actions/checkout@v2
             # Record (use record.sh or record2.sh)
             # Setup git
-            -
-                name: Setup Git Infomation
-                run: |
-                    git config --global user.name 'linshui888'
-                    git config --global user.email 'zyc19780217@icloud.com'
-            # Record (use record.sh or record2.sh)
-
+            - name: Setup Git Infomation
+              run: |
+                git config --global user.name 'linshui888'
+                git config --global user.email 'zyc19780217@icloud.com'
             - name: Pull latest changes
               run: |
                   git pull https://gitlab.com/phoenix-dvpmt/mmoitems.git
-        # 这里可以添加你需要执行的其他命令
-    - name: Push changes to repository
-      uses: actions/github-script@v4
-      with:
-        script: |
-          git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
+            - name: Push changes to repository
+              uses: actions/github-script@v4
+              with:
+               script: |
+                  git push https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
