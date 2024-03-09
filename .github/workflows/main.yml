@@ -18,6 +18,7 @@ jobs:
             - name: Pull latest changes
               run: |
                   git clone https://gitlab.com/phoenix-dvpmt/mmoitems.git
+                  cd mmoitems
             - name: Add
               run: |
                  git add .
