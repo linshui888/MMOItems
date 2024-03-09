@@ -1,7 +1,5 @@
 # nothing
-
 name: Update regularly every hour
-
 # daily job
 on:
     push:
